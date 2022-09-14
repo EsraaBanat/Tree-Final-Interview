@@ -6,16 +6,16 @@ class BinaryTree {
         this.root = root;
     }
 
-    add(value) {
-        let node = new Node(value);
-        if (!this.root) {
-            this.root = node;
-        }
-        let current = this.root;
-        while (current) {
+    // add(value) {
+    //     let node = new Node(value);
+    //     if (!this.root) {
+    //         this.root = node;
+    //     }
+    //     let current = this.root;
+    //     while (current) {
 
-        }
-    }
+    //     }
+    // }
 
     preOrder() {
         if (!this.root) return [];
@@ -109,6 +109,19 @@ class BinaryTree {
             return this;
         }
     }
+
+    sum() {
+        if (!this.root) return 0;
+        let sum = 0; // root >> left >> right
+        const traverse = (node) => {
+            sum = sum + node.value;
+            if (node.left) traverse(node.left);
+            if (node.right) traverse(node.right);
+        }
+        traverse(this.root);
+        return sum;
+    }
+
 }
 
 class BinarySearchTree extends BinaryTree {

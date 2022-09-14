@@ -5,14 +5,14 @@ const {
 } = require('./BinaryTree');
 const Node = require('./node');
 const treeify = require('treeify');
-const {isBst,breadthFirst} =require('./problemsolving')
+const {isBst,breadthFirst,isInclude,treeSum, maxPathSum,deleteNode,fizzBuzz} =require('./problemsolving')
 
 // BinaryTree
 let tree = null;
 
-let one = new Node(1);
-let two = new Node(2);
-let three = new Node(3);
+let one = new Node(10);
+let two = new Node(3);
+let three = new Node(13);
 let four = new Node(4);
 let five = new Node(5);
 let six = new Node(6);
@@ -37,7 +37,7 @@ two.right = five;
         //   /\
         //  4  5
 
-tree = new BinaryTree(one);
+tree = new BinarySearchTree(one);
 
 let preOrder = tree.preOrder();
 console.log('pre order: ', preOrder);
@@ -47,13 +47,19 @@ let inOrder = tree.inOrder();
 console.log('in order: ', inOrder);
 //pre order > 6 , 8 , 7 , 9 , 2 , 1 , 4 , 3 , 5
 
-// console.log(tree.invertTree());
-// console.log(tree.findMax());
-// console.log(tree.max());
-// console.log(tree.min());
-console.log(breadthFirst(tree));
+// console.log('invertTree',tree.invertTree());
+console.log('findMax',tree.findMax());
+console.log('max',tree.max());
+console.log('min',tree.min());
+console.log('Sum',tree.sum());
+console.log(tree.root);
+console.log('deleteNode',deleteNode(tree.root,5));
+console.log('breadthFirst',breadthFirst(tree));
+console.log('isInclude',isInclude(tree,2));
 
-console.log(isBst(tree));
+console.log('fizzBuzz',fizzBuzz(tree));
+console.log('treeSum',treeSum(tree.root));
+console.log('isBst',isBst(tree));
 
 console.log(treeify.asTree(tree,true));
 
